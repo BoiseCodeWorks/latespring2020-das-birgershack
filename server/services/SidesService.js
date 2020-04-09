@@ -7,9 +7,17 @@ class SidesService {
     return side
   }
   async edit(id, body) {
+    delete body.size
     let side = await dbContext.Sides.findByIdAndUpdate(id, body, { new: true })
     return side
   }
+
+  // async editSize(id, body) {
+  //   let side = await dbContext.Sides.findById(id)
+  //   side.size = body
+  //   side.save()
+  //   return side
+  // }
   async remove(id) {
     let side = await dbContext.Sides.findByIdAndDelete(id)
     return side

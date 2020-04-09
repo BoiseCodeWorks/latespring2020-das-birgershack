@@ -15,7 +15,7 @@ class BurgersService {
     return burger
   }
   async getAll(query = {}) {
-    let burgers = await dbContext.Burgers.find(query);
+    let burgers = await dbContext.Burgers.find(query).populate("tags");
     return burgers;
   }
   async getById(id) {
